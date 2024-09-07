@@ -1,0 +1,133 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:title",
+ "creation": "2024-09-06 14:30:11.957791",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "restrict_doctype",
+  "description",
+  "testing",
+  "column_break_rqbq",
+  "apply_mode",
+  "roles",
+  "users",
+  "section_break_rfvi",
+  "script",
+  "section_break_drte",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "DocType Permission",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "section_break_rfvi",
+   "fieldtype": "Section Break",
+   "label": "Restrict Condition"
+  },
+  {
+   "fieldname": "script",
+   "fieldtype": "Code",
+   "in_list_view": 1,
+   "label": "Script",
+   "options": "Python",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_drte",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_rqbq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:in_list(['Restrict All Except Roles', 'Restrict Roles'], doc.apply_mode)",
+   "fieldname": "roles",
+   "fieldtype": "Table MultiSelect",
+   "label": "Roles",
+   "mandatory_depends_on": "eval:in_list(['Restrict All Except Roles', 'Restrict Roles'], doc.apply_mode)",
+   "options": "DocType Permission Role"
+  },
+  {
+   "depends_on": "eval:in_list(['Restrict All Except Users', 'Restrict Users'], doc.apply_mode)",
+   "fieldname": "users",
+   "fieldtype": "Table MultiSelect",
+   "label": "Users",
+   "mandatory_depends_on": "eval:in_list(['Restrict All Except Users', 'Restrict Users'], doc.apply_mode)",
+   "options": "DocType Permission User"
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "label": "Title",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "restrict_doctype",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Restrict DocType",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "apply_mode",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Applicable",
+   "options": "Restrict All\nRestrict Roles\nRestrict All Except Roles\nRestrict Users\nRestrict All Except Users"
+  },
+  {
+   "default": "0",
+   "description": "During test, permission is applied without submission",
+   "fieldname": "testing",
+   "fieldtype": "Check",
+   "label": "Testing"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-07 23:24:23.152562",
+ "modified_by": "Administrator",
+ "module": "Thai Permission",
+ "name": "DocType Permission",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
